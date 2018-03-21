@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('users.active')->with('users', \App\User::where('active_status',1)->orderBy('updated_at', 'DESC')->get());
 });
 
 Auth::routes();
